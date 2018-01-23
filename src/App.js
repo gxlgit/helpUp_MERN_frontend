@@ -5,6 +5,7 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import Jobs from './Components/Jobs'
 import Job from './Components/Job'
 import Nav from './Components/Nav'
+import Welcome from './Components/Welcome'
 
 class App extends Component {
 	render() {
@@ -19,6 +20,7 @@ class App extends Component {
 
 						<Route path="/jobs/:jobName" render={props => <Job {...props} />} />
 						{/* <Route path={'/jobs/:jobName'} component={Job} /> */}
+						<Route path='/' component={Welcome}/>
 						<Route path="/*" render={() => <Redirect to="/Jobs" />} />
 					</Switch>
 				</main>
