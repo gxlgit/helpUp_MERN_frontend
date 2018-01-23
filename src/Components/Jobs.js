@@ -64,7 +64,8 @@ class Jobs extends Component {
       console.log('addJob');
       //this is where you would add form validation
       axios
-        .post(`http://localhost:6060/jobs`,
+        .post('https://helpup-api.herokuapp.com/jobs',
+        //.post(`http://localhost:6060/jobs`,
           {creator: this.state.creator,
         	name: this.state.name,
         	date: this.state.date,
@@ -74,7 +75,8 @@ class Jobs extends Component {
         	img: this.state.img,
         	volunteers: [] })
         .then(response => {
-          // console.log(response.data)
+            console.log('response');
+           console.log(response)
           let jobArrayCopy = this.state.jobs.slice()
 		      jobArrayCopy.push(response.data)
 		      this.setState(prevState => ({ jobs: jobArrayCopy }))
@@ -87,7 +89,8 @@ class Jobs extends Component {
   //  window.addEventListener('keyup', this.handleKeyUp)
    console.log('componentDidMount');
     axios
-      .get(`http://localhost:6060/jobs`)
+      //.get(`http://localhost:6060/jobs`)
+      .get('https://helpup-api.herokuapp.com/jobs')
       .then(response => {console.log(response.data)
         this.setState(prevState => ({ jobs: response.data }))
       })
