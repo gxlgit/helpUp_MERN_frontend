@@ -1,4 +1,5 @@
 import React, {Component } from 'react'
+import {Link} from 'react-router-dom'
 import axios from 'axios'
 import JobForm from './JobForm'
 
@@ -86,7 +87,6 @@ class Jobs extends Component {
   }
 
   componentDidMount () {
-  //  window.addEventListener('keyup', this.handleKeyUp)
    console.log('componentDidMount');
     axios
       //.get(`http://localhost:6060/jobs`)
@@ -108,7 +108,7 @@ class Jobs extends Component {
           return (
             <div key={index} className='job'>
               <h3>
-              <a href="/jobs/{currJob.name}">{currJob.name}</a>
+                <Link to={`/jobs/${currJob.name}`}>{currJob.name}</Link>
               </h3>
               <div>
                 {currJob.description}
